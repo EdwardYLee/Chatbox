@@ -1,9 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Play:700);
  
 :root {
-  --white: #ffffff; 
-  --black: #000000;
-  --cyan :#00F7FF;
+  --userBorderColor: #ffffff; 
+  --userTextColor: #000000;
+  --userBoxColor: #00F7FF;
+  --messageBorderColor: #00F7FF;
+  --messageTextColor: #00F7FF;
+  --messageBoxColor: #000000;
 }
 
 * {
@@ -19,8 +22,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
     font-family: 'Play';
     font-weight: 700;
-    line-height: 1.5em;
-    color: var(--cyan);
+    line-height: 1.5em
 }
  
 #log>div {
@@ -88,17 +90,16 @@ body {
     display: table-cell;
     padding-bottom: 0.1em;
 }
- 
-/* Username text*/
-#log .meta {
-  text-align: unset;
-  padding: 4px 15px;
-  text-transform: uppercase;
-}
 
 /* Username Box */
 #log .meta {
-  background-color: var(--cyan);
+  /* Properties for username text itself*/
+    text-align: unset;
+  padding: 4px 15px;
+  text-transform: uppercase;
+  
+  /*Properties for user box*/
+  background-color: var(--userBoxColor);
   z-index: 1;
   width: fit-content;
   margin-left: -2px;
@@ -106,9 +107,9 @@ body {
   -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
   clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
   
-  /* This adds a border to the top, left, and bottom side of the box*/
+  /* Properties for top, bottom, and left border*/
   border-style:solid;
-  border-color:white;
+  border-color:var(--userBorderColor);
   border-width: 2px;
 }
 
@@ -116,9 +117,11 @@ body {
 #log .message {
   /*Properties for text itself*/
   word-wrap: break-word;
+  text-shadow: 0 0 0.5em var(--messageTextColor);
+  color: var(--messageTextColor);
   
   /*Properties for inner message box*/
-  background-color: rgba(0, 0, 0, 1);
+  background-color: var(--messageBoxColor);
   max-width: 500px;
   min-width: 100px;
   padding-top: 15px;
@@ -153,7 +156,7 @@ body {
   width:40px;
   height:40px;
   overflow:hidden;
-  background-color:white;
+  background-color:var(--userBorderColor);
   transform:rotate(-45deg) translateX(15%) translateY(45%);
 }
 
@@ -169,7 +172,7 @@ body {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: var(--cyan);
+  background: var(--messageBorderColor);
   -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
   clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
 }
