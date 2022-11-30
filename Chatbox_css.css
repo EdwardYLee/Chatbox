@@ -1,0 +1,182 @@
+@import url(https://fonts.googleapis.com/css?family=Play:700);
+ 
+:root {
+  --white: #ffffff; 
+  --black: #000000;
+  --cyan :#00F7FF;
+}
+
+* {
+    box-sizing: border-box;
+}
+ 
+html, body {
+    height: 50%;
+    overflow: hidden;
+}
+ 
+body {
+    background: rgba(0, 0, 0, 0.5);
+    font-family: 'Play';
+    font-weight: 700;
+    line-height: 1.5em;
+    color: var(--cyan);
+}
+ 
+#log>div {
+    animation: fadeInBottom 0.35s ease forwards;
+    -webkit-animation: fadeInBottom 0.35s ease forwards;
+}
+ 
+@keyframes fadeInBottom {
+   0% {
+      opacity: 0;
+      transform: translateY(55px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+} 
+ 
+.colon {
+    display: none;
+}
+
+#log {
+    display: table;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 0px 0px;
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Add flex field to allow messages to show underneath the username*/
+#log>div {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+    width: fit-content;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+#log>div.deleted {
+    visibility: hidden;
+}
+ 
+#log .emote {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 0.4em 0.2em;
+    position: relative;
+}
+ 
+#log .emote img {
+    display: inline-block;
+    height: 1em;
+    opacity: 0;
+}
+ 
+#log .message,#log .meta {
+    vertical-align: top;
+    display: table-cell;
+    padding-bottom: 0.1em;
+}
+ 
+/* Username text*/
+#log .meta {
+  text-align: unset;
+  padding: 4px 15px;
+  text-transform: uppercase;
+}
+
+/* Username box */
+#log .meta {
+  background-color: var(--white);
+  z-index: 1;
+  width: fit-content;
+  margin-left: -2px;
+  margin-right: -20px;
+  /* This clips the bottom right corner of the user box*/
+  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+}
+
+/* Message text*/
+#log .message {
+    word-wrap: break-word;
+}
+
+/* Message text box*/
+#log .message {
+  background-color: rgba(0, 0, 0, 1);
+  max-width: 500px;
+  min-width: 100px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: -10px;
+  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+}
+
+/* border around message bubble */
+#log .message {
+  border-color: var(--cyan);
+  border-style: solid;
+  border-width: 0px
+}
+
+.badges {
+    display: inline-block;
+    margin-right: 0.2em;
+    position: relative;
+    height: 1em;
+    vertical-align: middle;
+    top: -0.1em;
+    opacity: 1;
+}
+
+.name {
+    margin-left: 0.0em;
+  margin-right: 0.0em;
+}
+
+.outerNameBorder {
+  position: absolute;
+  z-index: -5;
+  margin-top: 2px;
+  margin-left: 15px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 36px;
+  width: 90%;
+  background: var(--cyan);
+  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+}
+
+.innerMessageBorder {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 13px;
+  margin-right: 13.5px;
+  margin-bottom: -1.5px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: cyan;
+  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+}
+
+span + span { margin-top: 10px; }
