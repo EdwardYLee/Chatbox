@@ -112,13 +112,12 @@ body {
   border-width: 2px;
 }
 
-/* Message text*/
-#log .message {
-    word-wrap: break-word;
-}
-
 /* Message text box*/
 #log .message {
+  /*Properties for text itself*/
+  word-wrap: break-word;
+  
+  /*Properties for inner message box*/
   background-color: rgba(0, 0, 0, 1);
   max-width: 500px;
   min-width: 100px;
@@ -130,14 +129,6 @@ body {
   margin-bottom: 10px;
   -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
   clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
-}
-
-/* border around message bubble */
-#log .message {
-  z-index: -3;
-  border-color: var(--cyan);
-  border-style: solid;
-  border-width: 0px
 }
 
 .badges {
@@ -155,6 +146,7 @@ body {
   margin-right: 0.0em;
 }
 
+/* White box for the bottom right of the username box*/
 #log .meta:after {
   content: "";
   position:absolute;
@@ -165,6 +157,7 @@ body {
   transform:rotate(-45deg) translateX(15%) translateY(45%);
 }
 
+/* Cyan border for the the message box. This is actually a larger cyan box that is underneath the black message box*/
 .messageBorder {
   z-index: -4;
   position: absolute;
