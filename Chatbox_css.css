@@ -116,6 +116,7 @@ body {
 #log .message {
   /*Properties for text itself*/
   word-wrap: break-word;
+  text-shadow: 0 0 0.5em var(--cyan);
   
   /*Properties for inner message box*/
   background-color: rgba(0, 0, 0, 1);
