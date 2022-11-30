@@ -1,14 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Play:700);
- 
+ /*
+Cyan : #00F7FF
+DarkRed: #8B0000
+Light-ish Red: #F80C18
+*/
 :root {
-  --userBorderColor: #ffffff; 
-  --userTextColor: #000000;
+  --userBorderColor: #FFFFFF; 
+  --userTextColor: #FFFFFF;
   --userBoxColor: #00F7FF;
   --messageBorderColor: #00F7FF;
   --messageTextColor: #00F7FF;
   --messageBoxColor: #000000;
+  --fadeInTime: 0.35s;
+  --fadeOutTime: 0.5s;
+  --fadeOutDelay: 15000ms;
 }
-
 * {
     box-sizing: border-box;
 }
@@ -26,8 +32,8 @@ body {
 }
  
 #log>div {
-    animation: fadeInBottom 0.35s ease forwards;
-    -webkit-animation: fadeInBottom 0.35s ease forwards;
+        animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
+    -webkit-animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
 }
  
 @keyframes fadeInBottom {
@@ -40,6 +46,16 @@ body {
       transform: translateY(0);
    }
 } 
+ 
+@keyframes fadeOut {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+} 
+
  
 .colon {
     display: none;
