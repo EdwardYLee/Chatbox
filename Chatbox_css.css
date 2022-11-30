@@ -1,194 +1,178 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap');
- /*
+/*
 Cyan : #00F7FF
 DarkRed: #8B0000
 Light-ish Red: #F80C18
 */
+
 :root {
-  --userBorderColor: #FFFFFF; 
-  --userTextColor: #FFFFFF;
-  --userBoxColor: #00F7FF;
-  --messageBorderColor: #00F7FF;
-  --messageTextColor: #00F7FF;
-  --messageBoxColor: #000000;
-  --fadeInTime: 0.35s;
-  --fadeOutTime: 0.35s;
-  --fadeOutDelay: 15000ms;
+	--userBorderColor: #FFFFFF;
+	--userTextColor: #FFFFFF;
+	--userBoxColor: #00F7FF;
+	--messageBorderColor: #00F7FF;
+	--messageTextColor: #00F7FF;
+	--messageBoxColor: #000000;
+	--fadeInTime: 0.35s;
+	--fadeOutTime: 0.35s;
+	--fadeOutDelay: 15000ms;
 }
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
- 
 html, body {
-    height: 50%;
-    overflow: hidden;
+	height: 50%;
+	overflow: hidden;
 }
- 
 body {
-    background: rgba(0, 0, 0, 0.5);
-    font-family: 'Rajdhani';
-    font-weight: 700;
-    line-height: 1.5em
+	background: rgba(0, 0, 0, 0.5);
+	font-family: 'Rajdhani';
+	font-weight: 700;
+	line-height: 1.5em
 }
- 
 #log>div {
-        animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
-    -webkit-animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
+	animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
+	-webkit-animation: fadeInBottom var(--fadeInTime) ease forwards, fadeOut var(--fadeOutTime) ease var(--fadeOutDelay) forwards;
 }
- 
 @keyframes fadeInBottom {
-   0% {
-      opacity: 0;
-      transform: translateY(55px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateY(0);
-   }
-} 
- 
+	0% {
+		opacity: 0;
+		transform: translateY(55px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 @keyframes fadeOut {
-   0% {
-      opacity: 1;
-   }
-   100% {
-      opacity: 0;
-   }
-} 
-
- 
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
 .colon {
-    display: none;
+	display: none;
 }
-
 #log {
-    display: table;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 0 0px 0px;
-    table-layout: fixed;
-    width: 100%;
+	display: table;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 0 0px 0px;
+	table-layout: fixed;
+	width: 100%;
 }
-
 /* Add flex field to allow messages to show underneath the username*/
+
 #log>div {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 5px;
-    width: fit-content;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-top: 5px;
+	width: fit-content;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	background-color: transparent;
 }
-
 #log>div.deleted {
-    visibility: hidden;
+	visibility: hidden;
 }
- 
 #log .emote {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    padding: 0.4em 0.2em;
-    position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	padding: 0.4em 0.2em;
+	position: relative;
 }
- 
 #log .emote img {
-    display: inline-block;
-    height: 1em;
-    opacity: 0;
+	display: inline-block;
+	height: 1em;
+	opacity: 0;
 }
- 
-#log .message,#log .meta, #log .nameBorder {
-    vertical-align: top;
-    display: table-cell;
-    padding-bottom: 0.1em;
+#log .message, #log .meta, #log .nameBorder {
+	vertical-align: top;
+	display: table-cell;
+	padding-bottom: 0.1em;
 }
-
 /* Username Box */
+
 #log .meta {
-  /* Properties for username text itself*/
-    text-align: unset;
-  padding: 4px 15px;
-  text-transform: uppercase;
-  
-  /*Properties for user box*/
-  background-color: var(--userBoxColor);
-  z-index: 1;
-  width: fit-content;
-  margin-left: -2px;
-  /* This clips the bottom right corner of the user box*/
-  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
-  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
-  
-  /* Properties for top, bottom, and left border*/
-  border-style:solid;
-  border-color:var(--userBorderColor);
-  border-width: 2px;
+	/* Properties for username text itself*/
+	text-align: unset;
+	padding: 4px 15px;
+	text-transform: uppercase;
+	/*Properties for user box*/
+	background-color: var(--userBoxColor);
+	z-index: 1;
+	width: fit-content;
+	margin-left: -2px;
+	/* This clips the bottom right corner of the user box*/
+	-webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	/* Properties for top, bottom, and left border*/
+	border-style: solid;
+	border-color: var(--userBorderColor);
+	border-width: 2px;
 }
-
 /* Message text box*/
+
 #log .message {
-  /*Properties for text itself*/
-  word-wrap: break-word;
-  text-shadow: 0 0 0.5em var(--messageTextColor);
-  color: var(--messageTextColor);
-  
-  /*Properties for inner message box*/
-  background-color: var(--messageBoxColor);
-  max-width: 500px;
-  min-width: 100px;
-  padding-top: 15px;
-  padding-bottom: 5px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
-  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	/*Properties for text itself*/
+	word-wrap: break-word;
+	text-shadow: 0 0 0.5em var(--messageTextColor);
+	color: var(--messageTextColor);
+	/*Properties for inner message box*/
+	background-color: var(--messageBoxColor);
+	max-width: 500px;
+	min-width: 100px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	-webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
 }
-
 .badges {
-    display: inline-block;
-    margin-right: 0.2em;
-    position: relative;
-    height: 1em;
-    vertical-align: middle;
-    top: -0.1em;
-    opacity: 1;
+	display: inline-block;
+	margin-right: 0.2em;
+	position: relative;
+	height: 1em;
+	vertical-align: middle;
+	top: -0.1em;
+	opacity: 1;
 }
-
 .name {
-  margin-left: 0.0em;
-  margin-right: 0.0em;
+	margin-left: 0.0em;
+	margin-right: 0.0em;
 }
-
 /* White box for the bottom right of the username box*/
-#log .meta:after {
-  content: "";
-  position:absolute;
-  width:40px;
-  height:40px;
-  overflow:hidden;
-  background-color:var(--userBorderColor);
-  transform:rotate(-45deg) translateX(15%) translateY(45%);
-}
 
+#log .meta:after {
+	content: "";
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	background-color: var(--userBorderColor);
+	transform: rotate(-45deg) translateX(15%) translateY(45%);
+}
 /* Cyan border for the the message box. This is actually a larger cyan box that is underneath the black message box*/
+
 .messageBorder {
-  z-index: -4;
-  position: absolute;
-  margin-top: 24px;
-  margin-left: 13px;
-  margin-right: 13.5px;
-  margin-bottom: 8.5px;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background: var(--messageBorderColor);
-  -webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
-  clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	z-index: -4;
+	position: absolute;
+	margin-top: 24px;
+	margin-left: 13px;
+	margin-right: 13.5px;
+	margin-bottom: 8.5px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background: var(--messageBorderColor);
+	-webkit-clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
+	clip-path: polygon(100% 0, 100% 80%, 95% 100%, 0 100%, 0 0);
 }
